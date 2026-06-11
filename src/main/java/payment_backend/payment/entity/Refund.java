@@ -1,7 +1,23 @@
 package payment_backend.payment.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
+import payment_backend.payment.enums.RefundStatus;
 
+@Entity
+@Table(
+        name = "refunds",
+        indexes = {
+                @Index(name = "idx_refunds_razorpay_refund_id", columnList = "razorpay_refund_id", unique = true),
+                @Index(name = "idx_refunds_payment_id", columnList = "payment_id"),
+                @Index(name = "idx_refunds_status", columnList = "status")
+        }
+)
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Refund {
 
     @Id
