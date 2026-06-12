@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import payment_backend.payment.enums.RefundStatus;
 
+import java.time.Instant;
+
 @Entity
 @Table(
         name = "refunds",
@@ -49,6 +51,9 @@ public class Refund {
 
     @Column(name = "speed_processed", length = 20)
     private String speedProcessed;
+
+    @Column(name = "created_at",updatable = false)
+    private Instant createdAt;
 
     public boolean isProcessed() {
         return this.status == RefundStatus.PROCESSED;
