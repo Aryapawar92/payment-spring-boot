@@ -1,6 +1,5 @@
 package payment_backend.payment.entity;
 
-import com.razorpay.Payment;
 import jakarta.persistence.*;
 import lombok.*;
 import payment_backend.payment.enums.OrderStatus;
